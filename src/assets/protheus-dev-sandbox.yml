@@ -2,10 +2,10 @@ version: '3.2'
 
 services:
     license:
-      image: docker.totvs.io/dcp/license:latest
+      image: docker.totvs.io/dcp/license
 
     appserver:
-      image: docker.totvs.io/dcp/appserver_x32_13:latest
+      image: docker.totvs.io/dcp/appserver
       depends_on:
         - dbaccess
       ports:
@@ -18,13 +18,13 @@ services:
         - rpo_data:/apo
 
     dbaccess:
-      image: docker.totvs.io/dcp/dbaccess_x64:published
+      image: docker.totvs.io/dcp/dbaccess
       depends_on:
         - database
         - license
 
     database:
-      image: docker.totvs.io/dcp/postgres_dump:latest
+      image: docker.totvs.io/dcp/database
       volumes:
         - db_data:/var/lib/postgresql/data
 
